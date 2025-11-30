@@ -1,0 +1,16 @@
+summarize client_index CCSI cso_repress
+asdoc summarize client_index CCSI cso_repress
+regress cso_repress client_index CCSI
+ssc install outreg2
+regress cso_repress client_index CCSI
+outreg2 using myreg.doc
+regress  client_index cso_repress CCSI
+scatter client_index CCSI cso_repress
+scatter client_index CCSI cso_repress
+scatter CCSI cso_repress client_index
+use "/Users/amylynch/Downloads/populism dataset.dta"
+table country year populistpres, nototals
+ssc install asdoc, replace
+ asdoc table year populistpres
+  table year populistpres, export(688-stata outputs.docx, replace)
+   table country populistpres, export(688-stata outputs.docx, replace)
